@@ -99,3 +99,18 @@ skypro-# WHERE age = (SELECT MIN(age) FROM employee);
 (1 строка)
 
 
+skypro=# SELECT first_name AS Имя,
+skypro-# MAX(age) AS Максимальный_возраст
+skypro-# FROM employee
+skypro-# GROUP BY Имя
+skypro-# HAVING COUNT(first_name)>1
+skypro-# ORDER BY first_name DESC;
+Имя   | Максимальный_возраст
+---------+----------------------
+ Nata    |                   34
+ Dmitrii |                   60
+(2 строки)
+
+
+skypro=#
+
